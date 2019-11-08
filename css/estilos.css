@@ -1,0 +1,75 @@
+/* body {
+
+    background: url(../imagenes/wd.svg) no-repeat fixed center center ;
+    background-size: 85% 40%;
+    background-attachment: fixed;
+
+} */
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.container1 {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    margin-top: 4%;
+
+}
+.container2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.img-wiedii{
+    width: 55%;
+}
+
+.space{
+    height: 30%;
+}
+.container-box{
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+.widget p {
+    display: inline-block;
+    line-height: 1em;
+    
+}
+
+
+.fecha {
+    font-family: Oswald, Arial;
+    text-align: center;
+    font-size:1.5em;
+    /* background: rgba(0, 0, 0, 0.26); */
+    width: 100%;
+
+}
+
+.reloj {
+    font-family: Oswald, Arial;
+    width: 100%;
+    font-size: 2.5em;
+    text-align: center;
+    /* background: rgba(0, 0, 0, 0.26); */
+}
+
+.reloj .caja-segundos {
+      display: inline-block;    
+}
+
+
+
+
+
