@@ -1,4 +1,6 @@
-<!-- BOOTSTRAP -->
+<?php include ("db.php") ?>
+
+    <!-- BOOTSTRAP -->
 
 <link rel="stylesheet" 
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
@@ -17,10 +19,13 @@
    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
    crossorigin="anonymous"></script>
 
-
-
-
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
+   integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     
+
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
 <a class="navbar-brand" href="#">
@@ -36,14 +41,35 @@
         <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Hora de Entrada</a>
+        <a class="nav-link" href="login.php">Regresar <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Hora de Salida</a>
-      </li>
+      
       
     </ul>
   </div>
-
+  
 </nav>
 
+<div class="box-login">
+    <div class="login-container">
+    <form class="login1">
+    <div class="form-group">
+        <label for="exampleDropdownFormEmail2">Email address</label>
+        <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+    </div>
+    <div class="form-group">
+        <label for="exampleDropdownFormPassword2">Password</label>
+        <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+        <label class="form-check-label" for="dropdownCheck2">
+            Remember me
+        </label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+</div>
+</div>

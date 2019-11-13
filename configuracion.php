@@ -1,3 +1,8 @@
+
+
+<?php include ("db.php") ?>
+
+
 <!-- BOOTSTRAP -->
 
 <link rel="stylesheet" 
@@ -17,8 +22,9 @@
    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
    crossorigin="anonymous"></script>
 
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
+   integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-<!-- -->
 
     
 
@@ -48,3 +54,109 @@
   </div>
 
 </nav>
+
+<div class="container p-4">
+
+      <div class="row">
+         
+         <div class="col-md-4">
+
+            <?php if(isset($_SESSION['message']))  {?>
+                <div class="alert alert-<?= $_SESSION['message_type'];?> 
+                alert-dismissible fade show" role="alert">
+                 <?= $_SESSION['message'] ?>
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                 </button>
+                 </div>
+
+            <?php session_unset();} ?>
+             
+             <div class="card card-body">
+                  <form action="save_user.php" method= "POST">
+                      <div class="form-group">
+                         <input type="text" name="nombre" class="form-control"
+                         placeholder="Ingrese Nombre" autofocus>
+                      </div>
+
+                      <div class="form-group">
+                         <input type="text" name="equipo" class="form-control"
+                         placeholder="Ingrese Equipo" autofocus>
+                      </div>
+
+                      <div class="form-group">
+                         <input type="text" name="correo" class="form-control"
+                         placeholder="Ingrese Correo" autofocus>
+                      </div>
+                     
+                      <div class="form-group">
+                         <textarea name="huella" rows="2" class="form-control"
+                         placeholder="Ingrese Huella"></textarea>
+                      </div>
+                      <input type="submit" class="btn btn-success btn-block" 
+                      name="save_user" value="Guardar Usuario">
+
+                  </form>
+             </div>
+         
+         </div>
+
+
+            <div class="col-md-8">
+         
+              <table class="table table-bordered">
+                 <thead>
+                     <tr>
+                        <th>Nombre</th>
+                        <th>Equipo</th>
+                        <th>Correo</th>
+                        <th>Huella</th>
+                        <th>F_Creación</th>
+                        <th>Acción</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                 
+
+                   <?php 
+                    $query = "SELECT * FROM user";
+                    $result_user = mysqli_query($conn, $query);
+
+                    while($row = mysqli_fetch_array($result_user)) { ?>
+
+                      <tr>
+                         <td><?php echo $row['nombre'] ?></td>
+                         <td><?php echo $row['equipo'] ?></td>
+                         <td><?php echo $row['correo'] ?></td>
+                         <td><?php echo $row['huella'] ?></td>
+                         <td><?php echo $row['f_creacion'] ?></td>
+                         
+                         <td>
+                             <a href="edit_user.php?id=<?php echo $row['id']?>"class= "btn 
+                             btn-secondary"> 
+                                 <i class= "fas fa-marker"></i>
+                        
+                                
+                             </a>
+                             <a href="delete_user.php?id=<?php echo $row['id']?>"class="btn 
+                             btn-danger">
+                                 
+                                <i class="far fa-trash-alt"></i>
+                             </a>
+                         </td>
+                      </tr> 
+
+                    <?php } ?> 
+
+                 </tbody>
+              </table>
+         
+        </div>
+
+      </div>
+
+</div>
+
+
+
+

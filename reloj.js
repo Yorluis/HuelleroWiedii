@@ -20,7 +20,7 @@
         pMes = document.getElementById('mes'),
         pYear = document.getElementById('year');
 
-       var semana = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
+       var semana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
        pDiaSemana.textContent = semana[diaSemana];
 
        pDia.textContent = dia;
