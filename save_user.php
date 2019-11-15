@@ -1,6 +1,7 @@
 <?php
 
 include("db.php");
+// session_start();
 
 if (isset($_POST['save_user'])){
     $nombre = $_POST['nombre'];
@@ -16,7 +17,7 @@ if (isset($_POST['save_user'])){
      $result = mysqli_query($conn, $query);
 
     if (!$result) {
-        die("<script> alert('Usuario ya Registrado con la misma Huella');window.history.back()</script>");
+        die("<script> alert('Usuario ya Registrado con el mismo Nombre o Huella');window.history.back()</script>");
         
         
     }

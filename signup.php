@@ -1,6 +1,31 @@
-<?php include ("db.php") ?>
+<?php include ("database.php");
 
-    <!-- BOOTSTRAP -->
+  $message= '';
+
+  if (!empty($_POST['email']) && !empty($_POST['password'])) {
+    $sql = "INSERT INTO log_user (email, password) VALUES (:email, :password)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':email', $_POST['email']);
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $stmt->bindParam(':password', $password);
+
+    if ($stmt->execute()) {
+      $message = 'Successfully created new user';
+    } else {
+      $message = 'Sorry there must have been an issue creating your account';
+    }
+  }
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+ <!-- BOOTSTRAP -->
 
 <link rel="stylesheet" 
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
@@ -25,13 +50,18 @@
 
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
 
+  <title>SignUp</title>
 
+</head>
+
+<body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
 <a class="navbar-brand" href="#">
     <img src="./imagenes/wd.svg" width="90" height="30" class="d-inline-block align-top" alt="">
 </a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -44,32 +74,38 @@
         <a class="nav-link" href="login.php">Regresar <span class="sr-only">(current)</span></a>
       </li>
       
-      
     </ul>
   </div>
-  
 </nav>
 
-<div class="box-login">
-    <div class="login-container">
-    <form class="login1">
-    <div class="form-group">
-        <label for="exampleDropdownFormEmail2">Email address</label>
-        <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
-    </div>
-    <div class="form-group">
-        <label for="exampleDropdownFormPassword2">Password</label>
-        <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
-    </div>
-    <div class="form-group">
-        <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="dropdownCheck2">
-        <label class="form-check-label" for="dropdownCheck2">
-            Remember me
-        </label>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
+
+
+<div class=login20>
+
+<?php if(!empty($message)): ?>
+      <p> <?= $message ?></p>
+    <?php endif; ?>
+  <h1>SignUp</h1>
+    <span>or <a href="log.php">Login</a></span>
+
+    <form action="signup.php" method="POST">
+      <input name="email" type="text" placeholder="Enter your email">
+      <input name="password" type="password" placeholder="Enter your Password">
+      <input name="confirm_password" type="password" placeholder="Confirm your Password">
+      <input type="submit" value="Submit">
     </form>
+
 </div>
-</div>
+
+</body>
+
+</html>
+    
+
+
+
+
+
+
+
+
