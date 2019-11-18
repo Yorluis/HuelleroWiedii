@@ -2,8 +2,6 @@
 include("db.php");
 
 session_start();
-// print_r($_SESSION);
-// print_r($_COOKIE);
 
 if (!isset($_SESSION['user_id'])) {
    header('location: log.php');

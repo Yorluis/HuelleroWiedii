@@ -65,17 +65,17 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 
 <div class="login20">
   <?php if (!empty($user)) : ?>
-    <br> Welcome. <?= $user['email']; ?>
-    <br>You are Successfully Logged In
+    <br> Bienvenido. <?= $user['email']; ?>
+    <br>Has Iniciado Sesión Correctamente
     <a href="logout.php">
       Logout
     </a>
   <?php else : ?>
 
-    <h1>Please Login or SignUp</h1>
+    <h1>Login ó Registrarse</h1>
 
-    <a href="log.php">Login</a> or
-    <a href="signup.php">SignUp</a>
+    <a href="log.php">Login</a> ó
+    <a href="signup.php">Registrarse</a>
   <?php endif; ?>
 
 </div>

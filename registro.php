@@ -12,9 +12,7 @@ integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07j
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
 integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
-
-
-
+<link rel="stylesheet" type="text/css" href="css/estilos.css">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -42,3 +40,21 @@ integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0
   </div>
 
 </nav>
+
+
+<div class=login20>
+
+    <?php if (!empty($message)) : ?>
+      <p> <?= $message ?></p>
+    <?php endif; ?>
+
+    <h3>Por Favor Ingrese su Huella</h3>
+    <span>ó <a href="signup.php">Registrarse</a></span>
+
+    <form action="log.php" method="POST">
+      <input name="email" type="text" placeholder="Enter your email">
+      <input name="password" type="password" placeholder="Enter your Password">
+      <input type="submit" value="Registrar Huella">
+    </form>
+  </div>
+

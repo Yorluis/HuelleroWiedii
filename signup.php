@@ -10,9 +10,9 @@
     $stmt->bindParam(':password', $password);
 
     if ($stmt->execute()) {
-      $message = 'Successfully created new user';
+      $message = 'Usuario creado Satisfactoriamente';
     } else {
-      $message = 'Sorry there must have been an issue creating your account';
+      $message = 'Lo sentimos, existe un error al crear su cuenta';
     }
   }
 
@@ -85,14 +85,14 @@ aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 <?php if(!empty($message)): ?>
       <p> <?= $message ?></p>
     <?php endif; ?>
-  <h1>SignUp</h1>
-    <span>or <a href="log.php">Login</a></span>
+  <h1>Registro</h1>
+    <span>ó <a href="log.php">Login</a></span>
 
     <form action="signup.php" method="POST">
       <input name="email" type="text" placeholder="Enter your email">
       <input name="password" type="password" placeholder="Enter your Password">
       <input name="confirm_password" type="password" placeholder="Confirm your Password">
-      <input type="submit" value="Submit">
+      <input type="submit" value="Registrar">
     </form>
 
 </div>

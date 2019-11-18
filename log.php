@@ -1,8 +1,6 @@
 <?php
 
 session_start();
-// print_r($_SESSION);
-// print_r($_COOKIE);
 
 if (isset($_SESSION['user_id'])) {
   header('Location: /huellero_wiedii/configuracion.php');
@@ -22,7 +20,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $_SESSION['user_id'] = $results['id'];
     header("Location: /huellero_wiedii/log.php");
   } else {
-    $message = 'Sorry, those credentials do not match';
+    $message = 'Lo sentimos, esas credenciales no coinciden';
   }
 }
 
@@ -77,12 +75,12 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     <?php endif; ?>
 
     <h1>Login</h1>
-    <span>or <a href="signup.php">SignUp</a></span>
+    <span>ó <a href="signup.php">Registrarse</a></span>
 
     <form action="log.php" method="POST">
       <input name="email" type="text" placeholder="Enter your email">
       <input name="password" type="password" placeholder="Enter your Password">
-      <input type="submit" value="Submit">
+      <input type="submit" value="Ingresar">
     </form>
   </div>
 

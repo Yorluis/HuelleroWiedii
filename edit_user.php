@@ -1,7 +1,6 @@
 <?php
 include("db.php");
 include("includes/header.php");
-// session_start();
 
 
 
@@ -33,6 +32,7 @@ if (isset($_POST['update'])) {
   $_SESSION['message_type'] = 'warning';
   header("location: configuracion.php");
 }
+
 
 ?>
 
