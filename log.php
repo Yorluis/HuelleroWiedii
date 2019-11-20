@@ -58,9 +58,6 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
         <li class="nav-item">
           <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="login.php">Regresar <span class="sr-only">(current)</span></a>
-        </li>
 
 
       </ul>
@@ -73,7 +70,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     <?php if (!empty($message)) : ?>
       <p> <?= $message ?></p>
     <?php endif; ?>
-
+    <br>
     <h1>Login</h1>
     <span>ó <a href="signup.php">Registrarse</a></span>
 

@@ -37,7 +37,7 @@
           <a class="nav-link" href="registro.php">Registro de Huella</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="login.php">Configuración de Usuarios</a>
+          <a class="nav-link" href="log.php">Configuración de Usuarios</a>
         </li>
 
       </ul>

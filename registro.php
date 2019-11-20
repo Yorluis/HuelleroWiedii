@@ -1,3 +1,17 @@
+<?php include("db.php");
+session_start();
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HUELLERO WIEDII</title>
 <!-- BOOTSTRAP -->
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
@@ -13,6 +27,9 @@ integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07j
 integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
+</head>
+
+<body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -29,12 +46,6 @@ integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0
       <li class="nav-item">
         <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Hora de Entrada</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Hora de Salida</a>
-      </li>
 
     </ul>
   </div>
@@ -42,19 +53,40 @@ integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0
 </nav>
 
 
+
+
 <div class=login20>
+
 
     <?php if (!empty($message)) : ?>
       <p> <?= $message ?></p>
     <?php endif; ?>
+    <br>
+    
+    <h3>Por Favor Ingrese Su Huella</h3>
 
-    <h3>Por Favor Ingrese su Huella</h3>
-    <span>ó <a href="signup.php">Registrarse</a></span>
+    <div class=imghuella>
 
-    <form action="log.php" method="POST">
-      <input name="email" type="text" placeholder="Enter your email">
-      <input name="password" type="password" placeholder="Enter your Password">
-      <input type="submit" value="Registrar Huella">
+      <img src="imagenes/huella.png" width="100px" height="100px">
+    </div>
+    
+    <form action="enviarcorreo.php" method="POST">
+      
+      <input name="huella" type="password" autofocus="autofocus" id="huella" onblur="blurFunction()" placeholder="Ingrese su Huella" required>
+      <input class="botton-open" type="submit" name="operacion" value="Entrada">
+      <script>
+                       function blurFunction() {
+                           document.getElementById("huella").focus();
+                       }
+                   </script>
+      <div>
+      <input class="botton-exit" type="submit" name="operacion" value="Salida">
+      </div>
     </form>
-  </div>
+</div>
 
+
+       
+      
+
+</body>

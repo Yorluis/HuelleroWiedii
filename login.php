@@ -64,6 +64,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
 </nav>
 
 <div class="login20">
+  <br>
   <?php if (!empty($user)) : ?>
     <br> Bienvenido. <?= $user['email']; ?>
     <br>Has Iniciado Sesión Correctamente

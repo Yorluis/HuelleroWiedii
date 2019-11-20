@@ -6,6 +6,6 @@ session_unset();
 
 session_destroy();
 
-header('location: /huellero_wiedii/login.php');
+header('location: /huellero_wiedii/log.php');
 
 ?>

@@ -70,9 +70,7 @@ aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <li class="nav-item">
         <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login.php">Regresar <span class="sr-only">(current)</span></a>
-      </li>
+      
       
     </ul>
   </div>
@@ -85,6 +83,7 @@ aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 <?php if(!empty($message)): ?>
       <p> <?= $message ?></p>
     <?php endif; ?>
+  <br>
   <h1>Registro</h1>
     <span>ó <a href="log.php">Login</a></span>
 

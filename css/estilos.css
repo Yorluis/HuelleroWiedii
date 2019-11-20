@@ -6,6 +6,13 @@
   justify-content: center;
 }
 
+.botton-exit{
+  background: red !important;
+}
+.botton-open{
+  background: green !important;
+}
+
 .container {
   width: 100%;
   display: flex;
@@ -39,6 +46,8 @@
   font-size: 2em;
   width: 100%;
 }
+
+
 
 .img-wiedii {
   width: 50%;

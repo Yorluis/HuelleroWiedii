@@ -8,10 +8,16 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 
-
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HUELLERO WIEDII</title>
 <!-- BOOTSTRAP -->
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
@@ -29,9 +35,10 @@ integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
 integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
+</head>
 
 
-
+<body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -48,11 +55,9 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
          <li class="nav-item">
             <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
          </li>
+         
          <li class="nav-item">
-            <a class="nav-link" href="#">Usuarios</a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link" href="login.php">Regresar</a>
+            <a class="nav-link" href="login.php">Salir</a>
          </li>
 
       </ul>
@@ -81,19 +86,19 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
          <div class="card card-body">
             <form action="save_user.php" method="POST">
                <div class="form-group">
-                  <input type="text" name="nombre" class="form-control" placeholder="Ingrese Nombre" autofocus>
+                  <input type="text" name="nombre" class="form-control" placeholder="Ingrese Nombre" required autofocus>
                </div>
 
                <div class="form-group">
-                  <input type="text" name="equipo" class="form-control" placeholder="Ingrese Equipo" autofocus>
+                  <input type="text" name="equipo" class="form-control" placeholder="Ingrese Equipo" required autofocus>
                </div>
 
                <div class="form-group">
-                  <input type="text" name="correo" class="form-control" placeholder="Ingrese Correo" autofocus>
+                  <input type="text" name="correo" class="form-control" placeholder="Ingrese Correo" required autofocus>
                </div>
 
                <div class="form-group">
-                  <textarea name="huella" rows="2" class="form-control" placeholder="Ingrese Huella"></textarea>
+                  <textarea name="huella" rows="2" class="form-control" placeholder="Ingrese Huella" required></textarea>
                </div>
                <input type="submit" class="btn btn-success btn-block" name="save_user" value="Guardar Usuario">
 
@@ -157,3 +162,5 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
    </div>
 
 </div>
+
+</body>
