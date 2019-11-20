@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 15-11-2019 a las 21:23:05
+-- Tiempo de generación: 20-11-2019 a las 21:33:27
 -- Versión del servidor: 5.7.26
 -- Versión de PHP: 7.3.8
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `usuarios_wiedii`
 --
+CREATE DATABASE IF NOT EXISTS `usuarios_wiedii` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `usuarios_wiedii`;
 
 -- --------------------------------------------------------
 
@@ -37,19 +39,7 @@ CREATE TABLE `log_user` (
 --
 
 INSERT INTO `log_user` (`id`, `email`, `password`) VALUES
-(1, 'yorluis.vega@gmail.com', '$2y$10$QHb/iDMyHKRqzV3OHNmyPeI/WejfvAEDzIsuDaVKSEuCZqAKNDzYa'),
-(3, 'daniel@wiedii.co', '$2y$10$1PtLnEg/regG/6zKPadN0eO/900H1HlH9NQ6JE3Qo1uAv6lMWXbDq'),
-(4, 'edward.vega@gmail.com', '$2y$10$6DFmjYtMVllrb6jglryeBO/jo2JoLVMX1ZWm7RZLb/4CX5h1X2lBW'),
-(5, 'yorluis.vega@gmail.com', '$2y$10$7ymYwI/IEnKgePa70CRdVOm3mWCRxuu954kNQ191j9/abfghsT736'),
-(6, 'luis.vega@gmail.com', '$2y$10$bMrECx1cHNnFsE0W69FrqOR0LJJPo/vYxoRI8u5MJo6RlinONB7Nq'),
-(11, 'edward.vega@gmail.com', '$2y$10$.nHsOmJuufPW6B2gsrwYL.BLX5TNiZiQikD69ANIMU6Ls0.sBm8SK'),
-(12, 'vega@gmail.com', '$2y$10$5aLTVa63ezdBnEEu43l4A.4mruMxOzc8ohZxeLBfAmRE3DbRzpkHq'),
-(13, 'alex@gmail.com', '$2y$10$QjUumB0jPe.ElTa/M0fRT.5QMqUL15myuAej8PrDndJb/0tJYInmi'),
-(14, 'alex1@gmail.com', '$2y$10$QHb/iDMyHKRqzV3OHNmyPeI/WejfvAEDzIsuDaVKSEuCZqAKNDzYa'),
-(15, 'danielbecerra@gmail.com', '$2y$10$wBr4FzA.0gbncIdRM92fkOOmaKtUXRhEbcVe2I3XochEmEUlPrMJu'),
-(16, 'branyan@wiedii.co', '$2y$10$bLqjoJIWO1FXcDWaA1eWauKea6wt421gKMKf82lPLKACaxc3a5KhG'),
-(17, 'dani@gmail.com', '$2y$10$DS1y.rW6RYc9eAR01Uijzuk33UU15M3yfUnEEhPCWjwLURHRHloqy'),
-(18, 'alex10@gmail.com', '$2y$10$gw5dMElY7lzUdc.e/FOu3OIef7Xr40YcNWSs8GNBHcfX4Gaij1Wui');
+(19, 'yorluis.vega@gmail.com', '$2y$10$IB/a45aJpJmuA5S4Ie5Z5erRnZs.neiIy4R0gXX4cG38il5Soh/NW');
 
 -- --------------------------------------------------------
 
@@ -71,10 +61,16 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nombre`, `equipo`, `correo`, `huella`, `f_creacion`) VALUES
-(151, '32r23ttt', '32rr32', '3rr', '32r23r32sdfws', '2019-11-15 20:57:18'),
-(153, 'dsfs', 'dsfsdfds43t43t43', 'dsfdsfdst4t4tttt', 'fefewfwt43', '2019-11-15 21:00:46'),
-(158, '43t4t4', 't43t43', '43t43', '43t4', '2019-11-15 21:19:59'),
-(159, '3t4443', '43t43', '43t34', '43t4t3', '2019-11-15 21:20:04');
+(151, 'Jesus Becerra', 'ColoColo', 'jesus.becerra@wiedii.co', '12345678', '2019-11-15 20:57:18'),
+(153, 'Yorluis Vega', 'ColoColo', 'yorluis.vega@wiedii.co', '67890', '2019-11-15 21:00:46'),
+(161, 'Nestor Moya', 'ColoColo', 'nestor.moya@wiedii.co', '4321', '2019-11-18 22:08:20'),
+(162, 'David Diaz', 'Lyons', 'david.diaz@wiedii.co', '098768', '2019-11-19 13:39:13'),
+(163, 'Edward Vega', 'ColoColo', 'edward.vega@wiedii.co', '12345', '2019-11-19 20:44:15'),
+(164, 'Nicola Di Candia', 'ColoColo', 'nicola.dicandia@wiedii.co', '123', '2019-11-20 16:28:07'),
+(169, 'Renzon Caceres', 'Selgar', 'Renzon.caceres@wiedii.co', '1234', '2019-11-20 18:04:20'),
+(170, 'Andres Carrillo', 'Margay', 'andres.carrillo@wiedii.co', '890', '2019-11-20 18:33:26'),
+(171, 'Duban Garcia', 'ColoColo', 'duban.garcia@wiedii.co', '987', '2019-11-20 18:35:24'),
+(174, 'fg', 'f', 'f', 'f', '2019-11-20 20:07:35');
 
 --
 -- Índices para tablas volcadas
@@ -102,13 +98,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `log_user`
 --
 ALTER TABLE `log_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
