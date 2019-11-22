@@ -118,7 +118,7 @@ integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0
       </div>
 
       <div>
-      <button class="botton-mail" type="submit" name="operacion" value="Correo">Enviar Correo</button>
+      <button class="btn btn-primary" type="submit" name="operacion" value="Correo">Enviar Correo de Registro</button>
       </div>
     </form>
 </div>
