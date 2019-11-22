@@ -23,45 +23,87 @@ $huella = $_POST['huella'];
 
 if (!empty($huella)) {
     if (isset($_POST['operacion'])) {
-        $query = "SELECT * FROM user WHERE huella=$huella";
+        $query = "SELECT * FROM user WHERE huella='$huella'";
         $resultmail = mysqli_query($conn, $query);
         $row = mysqli_fetch_array($resultmail);
 
         $mailuser = $row['correo'];
         $nameuser = $row['nombre'];
+        $iduser = $row['id'];
         $mailusercc = 'huellero.wd@gmail.com';
         $subjectmsg = 'Registro huellero';
+        
     if (mysqli_num_rows($resultmail)==1){
         switch ($n) {
             case Entrada:
-                $bodymsg = 'Usted ha registrado su huella correctamente. 
-                <br>
-                <br>
-                <u><strong>ENTRADA A LA EMPRESA:</strong></u>'
-                .date(" h:i:s a - d M Y").'
-                <br>
-                <br>
-                Que tenga un Excelente Dia.';
-                $altbodymsg = 'Entrada satisfactoria';
-                $alertmsg = "<script>
+                $getin = "INSERT INTO registro (fecha, hora_entrada, id)
+                VALUES (CURDATE(), CURTIME(), '$iduser')";
+                $result = mysqli_query($conn, $getin);
+                // $bodymsg = 'Usted ha registrado su huella correctamente. 
+                // <br>
+                // <br>
+                // <u><strong>ENTRADA A LA EMPRESA:</strong></u>'
+                // .date(" h:i:s a - d M Y").'
+                // <br>
+                // <br>
+                // Que tenga un Excelente Dia.';
+                // $altbodymsg = 'Entrada satisfactoria';
+                // $alertmsg = "<script>
+                //     alert('Ha registrado de forma correcta su Entrada');location.href='registro.php'</script>";
+                echo "<script>
                     alert('Ha registrado de forma correcta su Entrada');location.href='registro.php'</script>";
                 break;
             case Salida:
-                $bodymsg = 'Usted ha registrado su huella correctamente.
-                <br>
-                <br>
-                <u><strong>SALIDA DE LA EMPRESA:</strong></u>'
-                .date(" h:i:s a - d M Y").'
-                <br> 
-                <br>Que tenga un Excelente Dia.';
-                $altbodymsg = 'Salida satisfactoria';
-                $alertmsg = "<script>
+                $getin = "INSERT INTO registro (fecha, hora_salida, id)
+                VALUES (CURDATE(), CURTIME(), '$iduser')";
+                $result = mysqli_query($conn, $getin);
+                // $bodymsg = 'Usted ha registrado su huella correctamente.
+                // <br>
+                // <br>
+                // <u><strong>SALIDA DE LA EMPRESA:</strong></u>'
+                // .date(" h:i:s a - d M Y").'
+                // <br> 
+                // <br>Que tenga un Excelente Dia.';
+                // $altbodymsg = 'Salida satisfactoria';
+                // $alertmsg = "<script>
+                //     alert('Ha registrado de forma correcta su Salida');location.href='registro.php'</script>";
+                echo "<script>
                     alert('Ha registrado de forma correcta su Salida');location.href='registro.php'</script>";
                 break;
-            
-        }
+             case Correo:
+                $query = "SELECT  fecha, hora_entrada, hora_salida  
+                FROM registro 
+                WHERE id= '$iduser'
+                and fecha <= CURDATE() and fecha >= DATE_SUB(CURDATE(), INTERVAL 15 DAY)
+                GROUP BY  fecha, hora_entrada, hora_salida  
+                ORDER BY fecha DESC";
+                $result = mysqli_query($conn, $query);
+    
+                $bodymesage = 'Este es el informe de las entradas y salidas de los ultimos 15 dias: 
+                    ' . $nameuser . ' 
+                    <br><br>
+                <table class="table table-bordered" style="font-size: 1vw;"id="tablausu">
+                    <thead>
+                    <tr>
+                        <th>Fecha de ingreso</th>
+                        <th>Hora de ingreso</th>
+                        <th>Hora de salida</th>
+                    </tr> </thead>
+                    <tbody>
+                    ';
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $bodymesage .= '
+                        <tr>
+                            <td>' . $row['fecha'] . '</td>
+                            <td>' . $row['hora_entrada'] . '</td>
+                            <td>' . $row['hora_salida'] . '</td>
+                        </tr>';
+                }
+                $bodymesage .= '</tbody></table>';
+                $alertmsg = "<script>
+                alert('Su registro se ha enviado de forma correcta');location.href='registro.php'</script>";
 
-$mail = new PHPMailer(true);
+                $mail = new PHPMailer(true);
 
 try {
     
@@ -78,7 +120,7 @@ try {
     $mail->addCC($mailusercc);
     $mail->isHTML(true);                                 
     $mail->Subject = $subjectmsg;
-    $mail->Body    = $bodymsg;
+    $mail->Body    = $bodymesage;
     $mail->AltBody = $altbodymsg;
     $mail->send();
     echo $alertmsg;
@@ -86,19 +128,16 @@ try {
     echo "<script>alert('El mensaje no pudo ser Enviado. Mailer Error: {$mail->ErrorInfo}');
     window.history.back()</script>";
 }
-    // }  echo "<script>alert('La Huella no Existe');
-    // window.history.back()</script>";
-}else {
-    // header("Location: registro.php?status=1");
-   
-   echo 'La huella no existe';
-    header("Location: registro.php");
+                break;
+            
+        }
+
+
+    }  else echo "<script>alert('La Huella no Existe');
+    window.history.back()</script>";
 }
 
     }
-}
 
-// echo "<script>
-// alert('Debe ingresar una Huella');location.href='registro.php'</script>";
 
 ?>

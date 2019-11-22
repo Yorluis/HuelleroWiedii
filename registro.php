@@ -27,6 +27,7 @@ integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07j
 integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
+<link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -63,7 +64,40 @@ integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0
     <?php endif; ?>
     <br>
     
+    <div class="container-box">
+  <div class="container">
+    <div class="widget">
+      <div class="fecha">
+        <p id="diaSemana" class="diaSemana"></p>
+        <p id="dia" class="dia"></p>
+        <p>de </p>
+        <p id="mes" class="mes"></p>
+        <p>del </p>
+        <p id="year" class="year"></p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container2">
+    <div class="widget">
+      <div class="reloj">
+        <p id="horas" class="horas"></p>
+        <p>:</p>
+        <p id="minutos" class="minutos"></p>
+        <p>:</p>
+        <div class="caja-segundos">
+          <p id="segundos" class="segundos"></p>
+          <p id="ampm" class="ampm"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+
     <h3>Por Favor Ingrese Su Huella</h3>
+    </div>
 
     <div class=imghuella>
 
@@ -82,11 +116,15 @@ integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0
       <div>
       <input class="botton-exit" type="submit" name="operacion" value="Salida">
       </div>
+
+      <div>
+      <button class="botton-mail" type="submit" name="operacion" value="Correo">Enviar Correo</button>
+      </div>
     </form>
 </div>
 
 
-       
+<script src="reloj.js"></script>  
       
 
 </body>
