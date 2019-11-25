@@ -98,8 +98,25 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
                </div>
 
                <div class="form-group">
-                  <textarea name="huella" rows="2" class="form-control" placeholder="Ingrese Huella" required></textarea>
+                  <textarea name="huella" rows="2" class="form-control" placeholder="Ingrese Huella"required autofocus></textarea>
                </div>
+
+               <div class="form-group">
+                  <input type="text" name="hora_entrada" class="form-control" placeholder="Ingrese la hora de entrada" required autofocus>
+               </div>
+
+               <div class="form-group">
+                  <input type="text" name="hora_almuerzo_salid" class="form-control" placeholder="Ingrese la hora de salida de almuerzo" required autofocus>
+               </div>
+
+               <div class="form-group">
+                  <input type="text" name="hora_almuerzo_ent" class="form-control" placeholder="Ingrese la hora de entrada de almuerzo" required autofocus>
+               </div>
+
+               <div class="form-group">
+                  <input type="text" name="hora_salida" class="form-control" placeholder="Ingrese la hora de salida" required autofocus>
+               </div>
+
                <input type="submit" class="btn btn-success btn-block" name="save_user" value="Guardar Usuario">
 
             </form>
@@ -117,6 +134,10 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
                   <th>Equipo</th>
                   <th>Correo</th>
                   <th>Huella</th>
+                  <th>Hora Entrada</th>
+                  <th>Hora Salida Almuerzo</th>
+                  <th>Hora Entrada Almuerzo</th>
+                  <th>Hora Salida</th>
                   <th>F_Creación</th>
                   <th>Acción</th>
                </tr>
@@ -135,6 +156,10 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
                      <td><?php echo $row['equipo'] ?></td>
                      <td><?php echo $row['correo'] ?></td>
                      <td><?php echo $row['huella'] ?></td>
+                     <td><?php echo $row['hora_entrada'] ?></td>
+                     <td><?php echo $row['hora_almuerzo_salid'] ?></td>
+                     <td><?php echo $row['hora_almuerzo_ent'] ?></td>
+                     <td><?php echo $row['hora_salida'] ?></td>
                      <td><?php echo $row['f_creacion'] ?></td>
 
                      <td>

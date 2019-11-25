@@ -8,11 +8,17 @@ if (isset($_POST['save_user'])){
     $equipo = $_POST['equipo'];
     $correo = $_POST['correo'];
     $huella = $_POST['huella'];
+    $hora_entrada = $_POST['hora_entrada'];
+    $hora_almuerzo_salid = $_POST['hora_almuerzo_salid'];
+    $hora_almuerzo_ent = $_POST['hora_almuerzo_ent'];
+    $hora_salida = $_POST['hora_salida'];
 
     
    
 
-     $query = "INSERT INTO user(nombre, equipo, correo, huella) VALUES ('$nombre', '$equipo', '$correo', '$huella')"; 
+     $query = "INSERT INTO user(nombre, equipo, correo, huella, hora_entrada, hora_almuerzo_salid, 
+     hora_almuerzo_ent, hora_salida) VALUES ('$nombre', '$equipo', '$correo', '$huella', '$hora_entrada',
+     '$hora_almuerzo_salid', '$hora_almuerzo_ent', '$hora_salida')"; 
      
      $result = mysqli_query($conn, $query);
 

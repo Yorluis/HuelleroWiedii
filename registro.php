@@ -54,8 +54,6 @@ integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0
 </nav>
 
 
-
-
 <div class=login20>
 
 
@@ -94,10 +92,10 @@ integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0
     </div>
   </div>
 
-  <div>
+  <!-- <div>
 
     <h3>Por Favor Ingrese Su Huella</h3>
-    </div>
+    </div> -->
 
     <div class=imghuella>
 
@@ -106,7 +104,8 @@ integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0
     
     <form action="enviarcorreo.php" method="POST">
       
-      <input name="huella" type="password" autofocus="autofocus" id="huella" onblur="blurFunction()" placeholder="Ingrese su Huella" required>
+      <input name="huella" type="password" autofocus="autofocus" id="huella" onblur="blurFunction()" 
+      placeholder="Ingrese su Huella" required>
       <input class="botton-open" type="submit" name="operacion" value="Entrada">
       <script>
                        function blurFunction() {
