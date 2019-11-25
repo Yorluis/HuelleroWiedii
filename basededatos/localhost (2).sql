@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 22-11-2019 a las 21:38:27
+-- Tiempo de generación: 25-11-2019 a las 21:26:36
 -- Versión del servidor: 5.7.26
 -- Versión de PHP: 7.3.8
 
@@ -60,30 +60,16 @@ CREATE TABLE `registro` (
 --
 
 INSERT INTO `registro` (`id_registro`, `fecha`, `hora_entrada`, `hora_salida`, `id`) VALUES
-(5, '2019-11-22', '11:14:30', NULL, 175),
-(6, '2019-11-22', NULL, '11:14:42', 175),
-(7, '2019-11-22', '12:04:31', NULL, 171),
-(8, '2019-11-22', '12:04:35', NULL, 171),
-(9, '2019-11-22', '12:04:39', NULL, 171),
-(10, '2019-11-22', '12:04:42', NULL, 171),
-(11, '2019-11-22', NULL, '12:05:22', 171),
-(12, '2019-11-22', '12:08:13', NULL, 175),
-(13, '2019-11-22', '13:22:09', NULL, 175),
-(14, '2019-11-22', '13:23:31', NULL, 175),
-(16, '2019-11-22', '13:27:11', NULL, 175),
-(17, '2019-11-22', '13:27:32', NULL, 175),
-(18, '2019-11-22', '13:28:56', NULL, 175),
-(19, '2019-11-22', '13:40:31', NULL, 175),
-(21, '2019-11-22', '13:41:10', NULL, 175),
-(22, '2019-11-22', '13:44:17', NULL, 175),
-(23, '2019-11-22', '13:47:29', NULL, 175),
-(24, '2019-11-22', NULL, '13:47:35', 175),
-(25, '2019-11-22', NULL, '13:50:30', 175),
-(26, '2019-11-22', '13:52:34', NULL, 175),
-(27, '2019-11-22', '15:27:41', NULL, 175),
-(28, '2019-11-22', NULL, '15:27:48', 175),
-(29, '2019-11-22', '16:10:38', NULL, 175),
-(30, '2019-11-22', NULL, '16:10:45', 175);
+(35, '2019-11-25', '12:50:45', NULL, 176),
+(36, '2019-11-25', NULL, '12:50:55', 176),
+(38, '2019-11-25', '14:57:44', NULL, 176),
+(39, '2019-11-25', NULL, '14:57:50', 176),
+(40, '2019-11-25', '14:57:56', NULL, 176),
+(41, '2019-11-25', NULL, '14:58:01', 176),
+(42, '2019-11-25', '14:58:56', NULL, 151),
+(43, '2019-11-25', NULL, '14:59:05', 151),
+(44, '2019-11-25', '14:59:15', NULL, 151),
+(45, '2019-11-25', NULL, '14:59:21', 151);
 
 -- --------------------------------------------------------
 
@@ -97,6 +83,10 @@ CREATE TABLE `user` (
   `equipo` text COLLATE utf8_unicode_ci NOT NULL,
   `correo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `huella` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `hora_entrada` time DEFAULT NULL,
+  `hora_almuerzo_salid` time DEFAULT NULL,
+  `hora_almuerzo_ent` time DEFAULT NULL,
+  `hora_salida` time DEFAULT NULL,
   `f_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -104,15 +94,11 @@ CREATE TABLE `user` (
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`id`, `nombre`, `equipo`, `correo`, `huella`, `f_creacion`) VALUES
-(151, 'Jesus Becerra', 'ColoColo', 'jesus.becerra@wiedii.co', '12345678', '2019-11-15 20:57:18'),
-(161, 'Nestor Moya', 'ColoColo', 'nestor.moya@wiedii.co', '4321', '2019-11-18 22:08:20'),
-(163, 'Edward Vega', 'ColoColo', 'edward.vega@wiedii.co', '12345', '2019-11-19 20:44:15'),
-(164, 'Nicola Di Candia', 'ColoColo', 'nicola.dicandia@wiedii.co', '1235', '2019-11-20 16:28:07'),
-(169, 'Renzon Caceres', 'Selgar', 'Renzon.caceres@wiedii.co', '1234', '2019-11-20 18:04:20'),
-(170, 'Andres Carrillo', 'Margay', 'andres.carrillo@wiedii.co', '890', '2019-11-20 18:33:26'),
-(171, 'Duban Garcia', 'ColoColo', 'duban.garcia@wiedii.co', '987', '2019-11-20 18:35:24'),
-(175, 'Yorluis Vega', 'ColoColo', 'yorluis.vega@wiedii.co', '67890', '2019-11-22 16:14:06');
+INSERT INTO `user` (`id`, `nombre`, `equipo`, `correo`, `huella`, `hora_entrada`, `hora_almuerzo_salid`, `hora_almuerzo_ent`, `hora_salida`, `f_creacion`) VALUES
+(151, 'Jesus Becerra', 'ColoColo', 'jesus.becerra@wiedii.co', '12345678', '07:00:00', '12:00:00', '13:00:00', '17:00:00', '2019-11-15 20:57:18'),
+(163, 'Edward Vega', 'ColoColo', 'edward.vega@wiedii.co', '12345', '07:00:00', '13:00:00', '14:00:00', '17:00:00', '2019-11-19 20:44:15'),
+(170, 'Andres Carrillo', 'Margay', 'andres.carrillo@wiedii.co', '890', '07:00:00', '12:00:00', '13:00:00', '17:00:00', '2019-11-20 18:33:26'),
+(176, 'Yorluis Vega', 'ColoColo', 'yorluis.vega@wiedii.co', '67890', '07:00:00', '12:00:00', '13:00:00', '17:00:00', '2019-11-25 15:55:10');
 
 --
 -- Índices para tablas volcadas
@@ -153,13 +139,13 @@ ALTER TABLE `log_user`
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `id_registro` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_registro` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- Restricciones para tablas volcadas
