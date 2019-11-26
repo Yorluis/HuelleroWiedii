@@ -78,7 +78,8 @@ if (isset($_POST['update'])) {
           </div>
 
           <div class="form-group">
-            <input type="text" name="hora_almuerzo_salid" value="<?php echo $hora_almuerzo_salid; ?>" class="form-control" 
+            <input type="text" name="hora_almuerzo_salid" value="<?php echo $hora_almuerzo_salid; ?>" 
+            class="form-control" 
             placeholder="Ingrese Hora de Salida de Almuerzo" required autofocus>
           </div>
 
