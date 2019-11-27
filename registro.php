@@ -48,10 +48,16 @@ session_start();
           <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link" href="registro.php">Actualizar <span class="sr-only">(current)</span></a>
+        </li>
+
       </ul>
     </div>
 
   </nav>
+
+  
 
 
   <div class=login21>
@@ -61,6 +67,18 @@ session_start();
       <p> <?= $message ?></p>
     <?php endif; ?>
     <br>
+
+    <?php if (isset($_SESSION['message'])) { ?>
+            <div class="alert alert-<?= $_SESSION['message_type']; ?> 
+                alert-dismissible fade show" role="alert">
+               <?= $_SESSION['message'] ?>
+               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+
+         <?php unset($_SESSION['message']); } ?>
+   
 
     <div class="container-box100">
 

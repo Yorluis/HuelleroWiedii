@@ -55,7 +55,7 @@ if ($result) {
         $mailuser = $rowd['correo'];
         
         if ($num == 0) {
-            if (!empty($diff_entry) &&  $diff_entry<='00:20:00') {
+            if (!empty($diff_entry) &&  $diff_entry<='00:10:00') {
                 $correo = 'si';
                 $bodymesage = 'El dia de hoy no ha ingresado la huella '
                     . date("d/m/Y");
@@ -74,13 +74,13 @@ if ($result) {
             $row = mysqli_fetch_array($result);
             $t_out = $row['hora_salida'];
             if (empty($t_out)) {
-                if (!empty($diff_e_lunch) && $diff_e_lunch <= '00:10:00' && $diff_e_lunch >= '-00:10:00') {
+                if (!empty($diff_e_lunch) && $diff_e_lunch <= '00:05:00' && $diff_e_lunch >= '-00:05:00') {
                     $correo = 'si';
                     $bodymesage = 'No se le olvide registrar la huella para salir a almorzar '
                         . date("d/m/Y");
                 } elseif (
-                    !empty($diff_departure) &&  $diff_departure <= '00:10:00' &&
-                    $diff_departure >= '-00:10:00'
+                    !empty($diff_departure) &&  $diff_departure <= '00:05:00' &&
+                    $diff_departure >= '-00:05:00'
                 ) {
                     $correo = 'si';
                     $bodymesage = 'No se le olvide registrar la huella al salir '
@@ -88,7 +88,7 @@ if ($result) {
                 }
                 else {$correo= 'no'; }
             } else {
-                if (!empty($diff_d_lunch) && $diff_d_lunch <= '00:10:00' && $diff_d_lunch >= '-00:10:00') {
+                if (!empty($diff_d_lunch) && $diff_d_lunch <= '00:05:00' && $diff_d_lunch >= '-00:05:00') {
                     $correo = 'si';
                     $bodymesage = 'No se le olvide registrar la huella que acaba de llegar de almorzar '
                         . date("d/m/Y");

@@ -80,8 +80,7 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
                </button>
             </div>
 
-         <?php session_unset();
-         } ?>
+         <?php unset($_SESSION['message']); } ?>
 
          <div class="card card-body">
             <form action="save_user.php" method="POST">
@@ -98,23 +97,28 @@ integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00
                </div>
 
                <div class="form-group">
-                  <textarea name="huella" rows="2" class="form-control" placeholder="Ingrese Huella"required autofocus></textarea>
+                  <textarea name="huella" rows="2" class="form-control" placeholder="Ingrese Huella"
+                  required autofocus></textarea>
                </div>
 
                <div class="form-group">
-                  <input type="text" name="hora_entrada" class="form-control" placeholder="Ingrese la hora de entrada" required autofocus>
+                  <input type="text" name="hora_entrada" class="form-control" placeholder="Ingrese la hora de entrada" 
+                  required autofocus>
                </div>
 
                <div class="form-group">
-                  <input type="text" name="hora_almuerzo_salid" class="form-control" placeholder="Ingrese la hora de salida de almuerzo" required autofocus>
+                  <input type="text" name="hora_almuerzo_salid" class="form-control" 
+                  placeholder="Ingrese la hora de salida de almuerzo" required autofocus>
                </div>
 
                <div class="form-group">
-                  <input type="text" name="hora_almuerzo_ent" class="form-control" placeholder="Ingrese la hora de entrada de almuerzo" required autofocus>
+                  <input type="text" name="hora_almuerzo_ent" class="form-control" 
+                  placeholder="Ingrese la hora de entrada de almuerzo" required autofocus>
                </div>
 
                <div class="form-group">
-                  <input type="text" name="hora_salida" class="form-control" placeholder="Ingrese la hora de salida" required autofocus>
+                  <input type="text" name="hora_salida" class="form-control" 
+                  placeholder="Ingrese la hora de salida" required autofocus>
                </div>
 
                <input type="submit" class="btn btn-success btn-block" name="save_user" value="Guardar Usuario">

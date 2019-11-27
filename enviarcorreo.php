@@ -50,8 +50,12 @@ if (!empty($huella)) {
                 // $altbodymsg = 'Entrada satisfactoria';
                 // $alertmsg = "<script>
                 //     alert('Ha registrado de forma correcta su Entrada');location.href='registro.php'</script>";
-                echo "<script>
-                    alert('Ha registrado de forma correcta su Entrada');location.href='registro.php'</script>";
+                // echo "<script>
+                //     alert('Ha registrado de forma correcta su Entrada');location.href='registro.php'</script>";
+                $_SESSION['message'] = 'Se ha Registrado su Entrada ' .$nameuser;
+                $_SESSION['message_type'] = 'success';
+            
+                header("Location: registro.php");
                 break;
             case Salida:
                 $getin = "INSERT INTO registro (fecha, hora_salida, id)
@@ -67,8 +71,12 @@ if (!empty($huella)) {
                 // $altbodymsg = 'Salida satisfactoria';
                 // $alertmsg = "<script>
                 //     alert('Ha registrado de forma correcta su Salida');location.href='registro.php'</script>";
-                echo "<script>
-                    alert('Ha registrado de forma correcta su Salida');location.href='registro.php'</script>";
+                // echo "<script>
+                //     alert('Ha registrado de forma correcta su Salida');location.href='registro.php'</script>";
+                $_SESSION['message'] = 'Se ha Registrado su Salida ' .$nameuser;
+                $_SESSION['message_type'] = 'success';
+            
+                header("Location: registro.php");
                 break;
              case Correo:
                 $query = "SELECT  fecha, hora_entrada, hora_salida  
@@ -100,8 +108,12 @@ if (!empty($huella)) {
                         </tr>';
                 }
                 $bodymesage .= '</tbody></table>';
-                $alertmsg = "<script>
-                alert('Su registro se ha enviado de forma correcta');location.href='registro.php'</script>";
+                // $alertmsg = "<script>
+                // alert('Su registro se ha enviado de forma correcta');location.href='registro.php'</script>";
+                $_SESSION['message'] = 'Su registro se ha enviado de forma correcta ' .$nameuser;
+                $_SESSION['message_type'] = 'success';
+            
+                header("Location: registro.php");
 
                 $mail = new PHPMailer(true);
 
@@ -133,8 +145,12 @@ try {
         }
 
 
-    }  else echo "<script>alert('La Huella no Existe');
-    window.history.back()</script>";
+    }  else {
+      $_SESSION['message'] = 'La Huella no Existe';
+                $_SESSION['message_type'] = 'danger';
+            
+                header("Location: registro.php");
+    }
 }
 
     }

@@ -1,6 +1,7 @@
 <?php
 
 include("db.php");
+session_start();
 
 
 if (isset($_POST['save_user'])){
@@ -23,15 +24,20 @@ if (isset($_POST['save_user'])){
      $result = mysqli_query($conn, $query);
 
     if (!$result) {
-        die("<script> alert('Usuario ya Registrado con el mismo Nombre o Huella');window.history.back()</script>");
+        
+      $_SESSION['message'] = 'Ya existe un Usuario con la misma Huella o Nombre';
+    $_SESSION['message_type'] = 'danger';
+
+    header("Location: configuracion.php");
         
         
-    }
+    } else{
 
     $_SESSION['message'] = 'Usuario Guardado Satisfactoriamente';
     $_SESSION['message_type'] = 'success';
 
     header("Location: configuracion.php");
+  } 
 
 }
 
